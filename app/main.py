@@ -1,5 +1,5 @@
 # src/main.py
-from interface_user import user_interface as ui
+from app.interface_user import user_interface as ui
 
 def main():
     # Iniciar la interfaz gráfica

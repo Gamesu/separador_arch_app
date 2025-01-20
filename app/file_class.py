@@ -1,5 +1,5 @@
 from icecream import ic
-from colorama import Fore, Back, init
+from colorama import Fore
 #ic.disable()
 
 class File:
@@ -33,9 +33,12 @@ class File:
     def export_csv(self):
         ic(self._FILE_NAME_PARSED)
         import csv
-        with open(self._FILE_NAME_PARSED, mode='w', newline='', encoding='utf-8') as file:
-            file_writer = csv.writer(file, delimiter=';')
-            file_writer.writerows(self._parsed_data)
-            ic(f'Creando archivo {self._FILE_NAME_PARSED}')
-            print(f'{Fore.GREEN}Creando archivo {Fore.CYAN}{self._FILE_NAME_PARSED}')
+        try:
+            with open(self._FILE_NAME_PARSED, mode='w', newline='', encoding='utf-8') as file:
+                file_writer = csv.writer(file, delimiter=';')
+                file_writer.writerows(self._parsed_data)
+                ic(f'{self._FILE_NAME_PARSED}')
+                print(f'{Fore.GREEN}Creando archivo {Fore.CYAN}{self._FILE_NAME_PARSED}')
+        except Exception as e:
+            print(f'{Fore.RED}Error al crear el archivo: {e}')
 

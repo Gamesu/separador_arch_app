@@ -1,6 +1,6 @@
 from icecream import ic
 from tkinter import filedialog, messagebox as mb
-from file_class import File
+from app.file_class import File
 import tkinter as tk
 import re, os
 #ic.disable()
