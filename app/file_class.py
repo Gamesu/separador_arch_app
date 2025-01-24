@@ -1,6 +1,6 @@
 from icecream import ic
 from colorama import Fore
-#ic.disable()
+ic.disable()
 
 class File:
     def __init__(self, name, path, positions):
@@ -8,7 +8,8 @@ class File:
         self._name = name
         self._path = path
         self._positions = positions
-        self._FILE_NAME_PARSED = f'Archivo Procesado: {self._name.replace('.txt', '')}.csv'
+        # self._FILE_NAME_PARSED = f'Procesado: {self._name.replace('.txt', '')}.csv'
+        self._FILE_NAME_PARSED = f'Archivo procesado.csv'
         # Variables propias del programa
         self._parsed_data = []
    
@@ -37,8 +38,14 @@ class File:
             with open(self._FILE_NAME_PARSED, mode='w', newline='', encoding='utf-8') as file:
                 file_writer = csv.writer(file, delimiter=';')
                 file_writer.writerows(self._parsed_data)
-                ic(f'{self._FILE_NAME_PARSED}')
-                print(f'{Fore.GREEN}Creando archivo {Fore.CYAN}{self._FILE_NAME_PARSED}')
+                ic(f'{self._parsed_data}')
+                print(f'{Fore.GREEN}Archivo procesado: {Fore.CYAN}{self._name}')
         except Exception as e:
             print(f'{Fore.RED}Error al crear el archivo: {e}')
 
+
+
+
+# archivo = File('archivo.txt', 'C:/Users/RyukiBot/Desktop/Scripts/Python/separador_arch_app/app/archivo.txt', [14, 12, 15])
+# archivo.parse_file()
+# archivo.export_csv()

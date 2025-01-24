@@ -3,7 +3,7 @@ from tkinter import filedialog, messagebox as mb
 from app.file_class import File
 import tkinter as tk
 import re, os
-#ic.disable()
+ic.disable()
 
 class user_interface:
     
